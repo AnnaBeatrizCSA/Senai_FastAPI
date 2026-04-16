@@ -30,4 +30,4 @@ jobs:
         
     - name: Executar o pytest no projeto
       run: |
-        pytest test/ -v --tb=short
+        pytest tests/ -v --tb=short
