@@ -13,7 +13,7 @@ WORKDIR /app
 
 RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
-COPY --from=builder /usr/local/lib/python3.11/site-packges /usr/local/lib/python3.11/site-packges
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
 COPY --from=builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn
 
