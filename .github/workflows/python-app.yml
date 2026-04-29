@@ -31,12 +31,25 @@ jobs:
     - name: Executar o pytest no projeto
       run: |
           PYTHONPATH=. pytest tests/ -v --tb=short
+
+    - name: Docker Login
+      uses: docker/login-action@v4.1.0
+      with:
+       username:
+       password: 
           
   Imagem:
     name: Construindo Imagem para o Docker
     runs-on: ubuntu-latest
     needs: build
     steps:
+
+      - name: Docker Login
+        uses: docker/login-action@v4.1.0
+        with:
+         username: ${{secrets.DOCKER_USER}}
+         password: ${{secrets.DOCKER_PWD}}
+       
       - name: Configurar o Docker na VM
         uses: docker/build-push-action@v7.1.0
         with:
