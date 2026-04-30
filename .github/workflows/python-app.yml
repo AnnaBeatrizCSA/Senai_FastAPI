@@ -32,11 +32,6 @@ jobs:
       run: |
           PYTHONPATH=. pytest tests/ -v --tb=short
 
-    - name: Docker Login
-      uses: docker/login-action@v4.1.0
-      with:
-       username:
-       password: 
           
   Imagem:
     name: Construindo Imagem para o Docker
